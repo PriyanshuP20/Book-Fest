@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
+import 'package:flutter_application_1/pagess/about_us.dart';
+import 'package:flutter_application_1/pagess/edit_profile.dart';
+import 'package:flutter_application_1/pagess/sign_in.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({
@@ -18,7 +21,8 @@ class SettingScreen extends StatelessWidget {
             BigUserCard(
               cardColor: Color.fromARGB(255, 150, 127, 254),
               userName: "Name",
-              userProfilePic: const AssetImage("assets/images/profileLogo.png"),
+              userProfilePic:
+                  const AssetImage("assets/images/profileLogo1.png"),
               cardActionWidget: SettingsItem(
                 icons: Icons.edit,
                 iconStyle: IconStyle(
@@ -29,7 +33,10 @@ class SettingScreen extends StatelessWidget {
                 title: "Modify",
                 subtitle: "Tap to change your data",
                 onTap: () {
-                  print("OK");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SettingsUI()),
+                  );
                 },
               ),
             ),
@@ -62,7 +69,12 @@ class SettingScreen extends StatelessWidget {
             SettingsGroup(
               items: [
                 SettingsItem(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => about()),
+                    );
+                  },
                   icons: Icons.info_rounded,
                   iconStyle: IconStyle(
                     backgroundColor: Colors.purple,
@@ -77,9 +89,14 @@ class SettingScreen extends StatelessWidget {
               settingsGroupTitle: "Account",
               items: [
                 SettingsItem(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyApp()),
+                    );
+                  },
                   icons: Icons.exit_to_app_rounded,
-                  title: "Sign Out",
+                  title: "Sign In/Sign Up",
                 ),
                 SettingsItem(
                   onTap: () {},
